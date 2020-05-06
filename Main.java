@@ -14,24 +14,29 @@ public class Main {
         int car_year;
         double car_value;
         int user_age;
+        int flag = 0;
 
         System.out.println("Do you want to know the discount of a vehicle for you? (y/n)");
-        keep = scanner.next().toUpperCase().replace("\n", "");
+        keep = scanner.next().toUpperCase();
+
         while (keep.equals("Y") || keep.equals("YES")){
 
             User new_user = new User();
-            do{
+            do {
                 System.out.println("car year?\n");
                 car_year = scanner.nextInt();
                 new_user.vec.set_year(car_year);
-            } while(new_user.vec.get_year() < 1990 || new_user.vec.get_year() > 2014);
+            } while( !(new_user.vec.get_year() >= 1990 && new_user.vec.get_year() <= 2014));
 
             do {
+                if (flag != 0){
+                    System.out.println("For buy a car, you should have age greater than 18");
+                }
                 System.out.println("Enter with the user age\n");
                 user_age = scanner.nextInt();
-                new_user.set_age(user_age);
-            } while(new_user.get_age() < 18);
-
+                new_user.age = user_age;
+                flag = 1;
+            } while(new_user.age < 18);
             do {
                 System.out.println("Enter value car\n");
                 car_value = scanner.nextDouble();
@@ -80,6 +85,6 @@ public class Main {
         System.out.println("Income total from Company is " + income);
         System.out.println("User get more discount is " + user_max_discount.get_age() + " years");
         }
-}
+    }
 
 }

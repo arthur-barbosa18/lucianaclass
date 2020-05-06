@@ -2,7 +2,7 @@ import java.text.*;
 import java.util.*;
 
 public class User{
-  private int age;
+  public int age;
   public Vehicle vec = new Vehicle();
   public double discount;
   public double discount_total;
