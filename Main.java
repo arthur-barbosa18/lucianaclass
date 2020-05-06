@@ -1,6 +1,7 @@
 import java.text.*;
 import java.util.*;     
-import java.lang.Math; 
+import java.lang.Math;
+
 public class Main {
 
     public static void main(String[] argv) throws Exception{
@@ -23,7 +24,7 @@ public class Main {
 
             User new_user = new User();
             do {
-                System.out.println("car year?\n");
+                System.out.println("car year?");
                 car_year = scanner.nextInt();
                 new_user.vec.set_year(car_year);
             } while( !(new_user.vec.get_year() >= 1990 && new_user.vec.get_year() <= 2014));
@@ -37,8 +38,9 @@ public class Main {
                 new_user.age = user_age;
                 flag = 1;
             } while(new_user.age < 18);
+
             do {
-                System.out.println("Enter value car\n");
+                System.out.println("Enter value car");
                 car_value = scanner.nextDouble();
                 new_user.vec.set_value(car_value);
             } while(new_user.vec.get_value() <= 0 );
@@ -48,18 +50,22 @@ public class Main {
             new_user.update_payment();
             new_user.set_discount_total();          
             arr_user.add(new_user);
+
             System.out.println("Do you want to know the discount of a vehicle for you? (y/n)");
             keep = scanner.next().toUpperCase();
+            flag = 0;
 
     }
 
     //double max_discount = Float.POSITIVE_INFINITY;
     double min_discount = 0;
     User user_max_discount = new User();
+
     User user_current;
     double discount_percent;
     if (arr_user.size() > 0) {
         final Object[][] table = new String[arr_user.size()+1][];
+
         table[0] = new String[] {"Car value", "Age", "Discount Car", "Discount user", "Value final"};
         for(int i=0; i<arr_user.size(); i++){
             user_current = arr_user.get(i);
@@ -68,7 +74,9 @@ public class Main {
                                                         String.valueOf(Math.round(user_current.vec.get_discount()*100)/100),
                                                         String.valueOf(Math.round(user_current.discount*100)/100), 
                                                         String.valueOf(Math.round(user_current.payment*100)/100)};
-            discount_percent = 1- (user_current.payment/user_current.vec.get_value());
+            discount_percent = 1 - (user_current.payment/user_current.vec.get_value());
+
+
             if (discount_percent > min_discount){
                 min_discount = discount_percent; //user_current.discount_total;
                 user_max_discount = user_current;
