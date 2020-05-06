@@ -4,15 +4,15 @@ import java.util.*;
 public class Vehicle{
 
   private int year;
-  private float value;
-  private float discount;
+  private double value;
+  private double discount;
 
-  public Vehicle(int year, float value){
+/*  public Vehicle(int year, double value){
     this.year = year;
     this.value = value;
-  }
+  }*/
 
-  public void set_discout(){
+  public void set_discount(){
     if(this.year <= 2000){
       this.discount = 0.12 * this.value;
     }
@@ -26,12 +26,12 @@ public class Vehicle{
     }
   }
 
-  public float get_discount(){
+  public double get_discount(){
     return this.discount;
   }
 
   public void set_year(int year){
-    if(this.year >=1990 && this.year <= 2014){
+    if(year >=1990 && year <= 2014){
       this.year = year;
     }
     else {
@@ -43,12 +43,12 @@ public class Vehicle{
     return this.year;
   }
 
-  public float get_value(){
+  public double get_value(){
     return this.value;
   }
 
 
-  public void set_value(value){
+  public void set_value(double value){
     if (value > 0){
       this.value = value;
     }
@@ -57,6 +57,5 @@ public class Vehicle{
     }
   }
 
-  public 
 
 }

@@ -3,17 +3,17 @@ import java.util.*;
 
 public class User{
   private int age;
-  public Vehicle vec;
-  public float discount;
-  public float discount_total;
-  public float payment;
+  public Vehicle vec = new Vehicle();
+  public double discount;
+  public double discount_total;
+  public double payment;
 
-  public User(int age, Vehicle vec){
+/*  public User(int age, Vehicle vec){
     this.age = age;
     this.vec = vec;
   }
-
-  public float set_discout() {
+*/
+  public void set_discount() {
     this.payment = this.vec.get_value() - this.vec.get_discount();
     if(this.age <= 40){
       this.discount = (0.5/100) * this.payment;
