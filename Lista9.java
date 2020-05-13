@@ -20,17 +20,17 @@ public class Lista9 {
   int mediaGrat;
   int gratMaior = 0;
   int maiorH = 0;
+  int funcionario_maior_h=0;
 
 
-
-  do {
+for(int numeroFuncionarios=0; numeroFuncionarios<100; numeroFuncionarios++){
 
    System.out.println("calcule o H do seu funcionário (digite código do funcionário = 0 para finalizar)");
 
    System.out.println("digite o código do seu funcionário: ");
    codigoFunc = leia.nextInt();
 
-   numeroFuncionarios++;
+   //numeroFuncionarios++;
    if (codigoFunc == 0) {
 
     break;
@@ -96,18 +96,18 @@ public class Lista9 {
 
    if (h > max_value) {
     max_value = h;
-    maiorH = h;
+    funcionario_maior_h = codigoFunc;
+    //maiorH = h;
    }
 
-   numeroFuncionarios++;
-
-
-  } while (numeroFuncionarios <= 100);
+   //numeroFuncionarios++;
+}
 
   mediaGrat = gratTotal / numeroFuncionarios;
 
-
-  System.out.println("o fator H de maior valor foi: " + maiorH);
+  String message_funcionario_do_ano = String.format("O fator H de maior valor foi: %s cujo código é %s", max_value, funcionario_maior_h);
+  System.out.println(message_funcionario_do_ano);
+  //System.out.println( " cujo codigo é: " + funcionario_maior_h);
   System.out.println("o média de gratificação dos funcionários foi: " + mediaGrat);
   System.out.println("o numero de funcionários com fator H maior que 1500 é: " + gratMaior);
 
